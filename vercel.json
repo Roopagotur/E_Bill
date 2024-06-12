@@ -1,5 +1,5 @@
 {
     "rewrites": [
-        {"source": "/(.*)", "https://vercel.com/roopa-goturs-projects/e-bill-pw44": "/"}
+        {"source": "/(.*)", "destination": "/"}
     ]
 }
