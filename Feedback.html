@@ -191,5 +191,46 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+   
+    document.addEventListener('DOMContentLoaded', function () {
+      const feedbackForm = document.getElementById('feedbackForm');
+
+      feedbackForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value;
+        const firstVisit = document.querySelector('input[name="firstVisit"]:checked').value;
+        const found = document.querySelector('input[name="found"]:checked').value;
+        const infoSought = document.getElementById('infoSought').value;
+        const ease = document.getElementById('ease').value;
+        const comments = document.getElementById('comments').value;
+        const date = new Date().toLocaleString();
+
+        const feedbackData = {
+          type: 'Feedback',
+          details: `Email: ${email}, Name: ${name}, First Visit: ${firstVisit}, Found What Needed: ${found}, Info Sought: ${infoSought}, Ease of Use: ${ease}, Comments: ${comments}`,
+          date: date
+        };
+
+        // Retrieve existing user data from localStorage or initialize an empty array
+        let userActivities = JSON.parse(localStorage.getItem('userActivities')) || { complaints: [], activity: [] };
+
+        // Add feedback to user's activity
+        userActivities.activity.push(feedbackData);
+
+        // Store updated userData back into localStorage
+        localStorage.setItem('userActivities', JSON.stringify(userActivities));
+
+        // Optionally, you can redirect to a thank you page or clear the form
+        alert('Thank you for your feedback!');
+
+        // Clear the form after submission
+        feedbackForm.reset();
+      });
+    });
+
+  </script>
 </body>
 </html>

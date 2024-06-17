@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>E_Bill - User Profile</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .profile-container {
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .profile-header h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .card {
+      margin-top: 20px;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .card-text {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .account-settings {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .account-settings a {
+      font-size: 1.2rem;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .account-settings a:hover {
+      text-decoration: underline;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .activity-container {
+      margin-top: 40px;
+    }
+
+    .activity-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .activity-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .activity-item {
+      background-color: #f8f9fa;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header" class="header sticky-top">
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center">
+            <a href="mailto:contact@example.com">E_Bill@example.com</a>
+          </i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91 6767676767</span></i>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <h1 class="sitename">E_Bill</h1>
+        </a>
+
+        <div class="header-right">
+          <a href="#" id="profileDropdown" aria-expanded="false">
+            <i class="bi bi-person" style="font-size: 24px;"></i>
+          </a>
+          <a href="HOME.html" id="accountSettingsLink">
+            <img src="assets/img/Home.png" style="width: 30px; height: 30px;">
+          </a>
+          <a href="Login.html" id="logout">
+            <img src="assets/img/Logout.png" style="width: 30px; height: 30px;">
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Profile Section -->
+    <section id="profile" class="profile section">
+      <div class="container profile-container">
+        <div class="profile-header">
+          <h2>User Profile</h2>
+        </div>
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title" id="profileName">Name: </h5>
+            <p class="card-text" id="profileEmail">Email: </p>
+            <p class="card-text" id="profilePhone">Phone: </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Profile Section -->
+
+    <!-- Activity Section -->
+    <section id="activity" class="activity section">
+      <div class="container activity-container">
+        <div class="activity-header">
+          <h2>User Activity</h2>
+        </div>
+        <ul class="activity-list" id="activityList">
+          <!-- Activity items will be appended here -->
+        </ul>
+      </div>
+    </section>
+    <!-- End Activity Section -->
+  </main>
+
+  <!-- Bootstrap 5 JS and dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function getUserData() {
+        const user = JSON.parse(localStorage.getItem('userData'));
+        return user ? user : null;
+      }
+
+      function displayUserProfile() {
+        const profileName = document.getElementById('profileName');
+        const profileEmail = document.getElementById('profileEmail');
+        const profilePhone = document.getElementById('profilePhone');
+
+        const userData = getUserData();
+
+        if (userData) {
+          profileName.textContent = `Name: ${userData.name}`;
+          profileEmail.textContent = `Email: ${userData.email}`;
+          profilePhone.textContent = `Phone: ${userData.phone}`;
+
+          // Optionally set profile image if you have it in local storage
+          // profileImage.src = userData.profileImage || 'assets/img/profile-placeholder.png';
+        } else {
+          profileName.textContent = 'Name: Not Available';
+          profileEmail.textContent = 'Email: Not Available';
+          profilePhone.textContent = 'Phone: Not Available';
+        }
+      }
+
+      function displayUserActivity() {
+        const activityList = document.getElementById('activityList');
+        const userData = getUserData();
+
+        if (userData && userData.complaints && userData.complaints.length > 0) {
+          userData.complaints.forEach((complaint, index) => {
+            const li = document.createElement('li');
+            li.classList.add('activity-item');
+            li.innerHTML = `
+              <strong>Complaint #${index + 1}:</strong> ${complaint.type} - ${complaint.details}
+              <br><small>${complaint.date}</small>
+            `;
+            activityList.appendChild(li);
+          });
+        } else {
+          const li = document.createElement('li');
+          li.classList.add('activity-item');
+          li.textContent = 'No activity available';
+          activityList.appendChild(li);
+        }
+      }
+
+      displayUserProfile();
+      displayUserActivity();
+    });
+
+    function logout() {
+      localStorage.removeItem('userData');
+      window.location.href = 'Login.html';
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const feedbackForm = document.getElementById('feedbackForm');
+      const userActivities = document.getElementById('activityList');
+  
+      function getUserData() {
+        const user = JSON.parse(localStorage.getItem('userActivities'));
+        return user ? user : null;
+      }
+  
+      function storeFeedback(feedbackData) {
+        const userActivities = getUserData() || { complaints: [] };
+        userActivities.complaints.push(feedbackData);
+        localStorage.setItem('userActivities', JSON.stringify(userActivities));
+      }
+  
+      function displayUserActivity() {
+        const userActivities = getUserData();
+  
+        if (userActivities && userActivities.complaints && userActivities.complaints.length > 0) {
+          userActivities.complaints.forEach((complaint, index) => {
+            const li = document.createElement('li');
+            li.classList.add('activity-item');
+            li.innerHTML = `
+              <strong>Feedback #${index + 1}:</strong> ${complaint.type} - ${complaint.details}
+              <br><small>${complaint.date}</small>
+            `;
+            activityList.appendChild(li);
+          });
+        } else {
+          const li = document.createElement('li');
+          li.classList.add('activity-item');
+          li.textContent = 'No feedback submitted';
+          activityList.appendChild(li);
+        }
+      }
+  
+      feedbackForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+  
+        const formData = new FormData(feedbackForm);
+        const feedbackData = {
+          type: 'Feedback',
+          details: `
+            Name: ${formData.get('name')}
+            Email: ${formData.get('email')}
+            First Visit: ${formData.get('firstVisit')}
+            Found Needed Information: ${formData.get('found')}
+            Difficulty Faced: ${formData.get('infoSought')}
+            Ease of Use: ${formData.get('ease')}
+          `,
+          date: new Date().toLocaleString()
+        };
+  
+        storeFeedback(feedbackData);
+        displayUserActivity();
+  
+        feedbackForm.reset();
+      });
+  
+      displayUserActivity();
+    });
+  </script>
+</body>
+
+</html>

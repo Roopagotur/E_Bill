@@ -6,196 +6,160 @@
     <title>Transaction History</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+    <!-- Other CSS files -->
+    <link href="assets/css/main.css" rel="stylesheet">
 </head>
 <body class="index-page">
 
-    <header id="header" class="header sticky-top">
-  
-      <div class="topbar d-flex align-items-center">
+<header id="header" class="header sticky-top">
+    <div class="topbar d-flex align-items-center">
         <div class="container d-flex justify-content-center justify-content-md-between">
-          <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">E_Bill@example.com</a></i>
-            <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91 6767676767</span></i>
-          </div>
-  
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">E_Bill@example.com</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91 6767676767</span></i>
+            </div>
         </div>
-      </div><!-- End Top Bar -->
-  
-      <div class="branding d-flex align-items-center">
-  
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
         <div class="container position-relative d-flex align-items-center justify-content-between">
-          <a href="index.html" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1 class="sitename">E_Bill</h1>
-          </a>
-  
-          <nav id="navmenu" class="navmenu">
-            <ul>
-              <li><a href="HOME.html" class="active">Profile<br></a></li>
-               <ul>
-                  <li class="dropdown"><a href="#"><span>Dashboard</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <h1 class="sitename">E_Bill</h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="HOME.html" class="active">Profile</a></li>
                     <ul>
-                      <li><a href="Payment.html">Payment</a></li>
-                      <li><a href="History.html">History</a></li>
-                      <li><a href="Feedback.html">Feedback</a></li>
+                        <li class="dropdown"><a href="#">Dashboard <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                <li><a href="Payment.html">Payment</a></li>
+                                <li><a href="History.html">History</a></li>
+                                <li><a href="Feedback.html">Feedback</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                  </li>
+                    </li>
+                    <li><a href="complaint.html">Complaint</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="HOME.html#about">About Us</a></li>
+                    <li><a href="HOME.html#contact">Contact</a></li>
                 </ul>
-              </li>
-              <li><a href="complaint.html">Complaint</a></li>
-              <li><a href="feedback.html">Feedback</a></li>
-              <li><a href="HOME.html#about">About Us</a></li>
-              <li><a href="HOME.html#contact">Contact</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
-  
-          <a class="cta-btn d-none d-sm-block" href="NewConnection.html">New Connection</a>
-  
-          </div>
-  
-      </div>
-  
-    </header>
-    <main class="main">
-
-        <section id="Payment History" class="Payment History section">
-    
-          <div class="Payment History section-title" data-aos="fade-up">
-            <h2>Payment History</h2>
-         </div>
-    
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
-        <form class="mb-3">
-          <div class="row">
-            <!-- Date Range Filters -->
-            <div class="col-md-3 form-group mt-3 mt-md-0">
-                <label for="fromDate" class="form-label">From:</label>
-                <input type="date" class="form-control" id="fromDate" name="fromDate" required>
-            </div>
-                <div class="col-md-3 form-group mt-3 mt-md-0">
-                <label for="toDate" class="form-label">To:</label>
-                <input type="date" class="form-control" id="toDate" name="toDate" required>
-            </div>
-
-            <!-- Status Filter -->
-            <div class="col-md-3 form-group mt-3 mt-md-0">
-                <label for="status" class="form-label">Status:</label>
-                <select id="status" class="form-select" name="status" required>
-                    <option value="all">All</option>
-                    <option value="paid">Paid</option>
-                    <option value="unpaid">Unpaid</option>
-                </select>
-            </div><br>
-            <!-- Filter Button -->
-            <div class="col-md-3 form-group">
-                <label for="status" class="form-label">Click here to Filter</label><br>
-                <button type="submit" class="btn btn-info">Filter</button>
-                </div>
-            
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+            <a class="cta-btn d-none d-sm-block" href="NewConnection.html">New Connection</a>
         </div>
-            
-        </form>
-        
-        <!-- Transaction Table -->
-        <div class="col-md-12 form-group mt-3 mt-md-0 bord">
-        <table class="table table-bordered ">
-            <thead>
-                <tr>
-                    <th>Date/Time</th>
-                    <th>Aadhaar No</th>
-                    <th>Status</th>
-                    <th>Amount</th>
-                    <th>Download Receipt</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Sample Data Rows -->
-                <tr>
-                    <td>2024-01-09 12:30</td>
-                    <td>123456789012</td>
-                    <td>Paid</td>
-                    <td>500.00</td>
-                    <td><a href="#" class="btn btn-info">Download</a></td>
-                </tr>
-             
-                <tr>
-                    <td>2024-03-01 12:30</td>
-                    <td>33446789012</td>
-                    <td>Paid</td>
-                    <td>1000.00</td>
-                    <td><a href="#" class="btn btn-info">Download</a></td>
-                </tr>
-              
-                <tr>
-                    <td>2024-05-22 12:30</td>
-                    <td>123456789012</td>
-                    <td>Unpaid</td>
-                    <td>500.00</td>
-                    <td><a href="#" class="btn btn-info">Download</a></td>
-                </tr>
-                <tr>
-                    <td>2024-06-01 12:30</td>
-                    <td>33446789012</td>
-                    <td>Paid</td>
-                    <td>2350.00</td>
-                    <td><a href="#" class="btn btn-info">Download</a></td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-
     </div>
-</section>
-    <footer id="footer" class="footer">
+</header>
 
+<main class="main">
+    <section id="payment-history" class="payment-history section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Payment History</h2>
+            </div>
 
-        <div class="container copyright text-center mt-4">
-          <p>© <span>Copyright</span> <strong class="px-1 sitename">E_Bill</strong> <span>All Rights Reserved</span></p>
-        
+            <form id="filterForm" class="mb-3">
+                <div class="row">
+                    <!-- Date Range Filters -->
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="fromDate" class="form-label">From:</label>
+                        <input type="date" class="form-control" id="fromDate" name="fromDate" required>
+                    </div>
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="toDate" class="form-label">To:</label>
+                        <input type="date" class="form-control" id="toDate" name="toDate" required>
+                    </div>
+                    <!-- Status Filter -->
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="status" class="form-label">Status:</label>
+                        <select id="status" class="form-select" name="status" required>
+                            <option value="all">All</option>
+                            <option value="paid">Paid</option>
+                            <option value="unpaid">Unpaid</option>
+                        </select>
+                    </div>
+                    <!-- Filter Button -->
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label class="form-label">&nbsp;</label><br>
+                        <button type="submit" class="btn btn-info">Filter</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Transaction Table -->
+            <div class="table-responsive">
+                <table id="paymentTable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                            
+                            <th>Download Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentTableBody">
+                        <!-- Payment rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-    
-      </footer>
-    
-      <!-- Scroll Top -->
-      <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    
-      <!-- Preloader -->
-      <div id="preloader"></div>
-    
-      <!-- Vendor JS Files -->
-      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script src="assets/vendor/php-email-form/validate.js"></script>
-      <script src="assets/vendor/aos/aos.js"></script>
-      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-      <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    
-      <!-- Main JS File -->
-      <script src="assets/js/main.js"></script>
-    
-    </body>
-    
-    </html>
+    </section>
+</main>
+
+<footer id="footer" class="footer">
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">E_Bill</strong> <span>All Rights Reserved</span></p>
+    </div>
+</footer>
+
+<!-- Scroll Top Button -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<!-- Custom JS for Transaction History -->
+<!-- Inside <script> tag in History.html -->
+
+  <!-- Inside <script> tag in History.html -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const paymentTableBody = document.getElementById('paymentTableBody');
+      
+      // Function to fetch and display payments
+      function displayStoredPayment() {
+          const lastPayment = JSON.parse(localStorage.getItem('lastPayment'));
+          if (lastPayment) {
+              renderPayment(lastPayment);
+          }
+      }
+
+      // Function to render a single payment row
+      function renderPayment(payment) {
+          const row = `
+              <tr>
+                  <td>${payment.date}</td>
+                  <td>${payment.amount}</td>
+                  <td>${payment.method}</td>
+                  <td><a href="#" class="btn btn-info">Download</a></td>
+              </tr>
+          `;
+          paymentTableBody.innerHTML = row;
+      }
+
+      // Initial call to display stored payment on page load
+      displayStoredPayment();
+  });
+</script>
+
+
+</body>
+</html>
